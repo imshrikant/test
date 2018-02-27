@@ -1,0 +1,63 @@
+1.solution
+                function mark35() {
+            for (var i = 1; i <= 100; i++) {
+                if (i % 3 === 0 && i % 5 === 0)
+                    console.log('BizAppz');
+                else if (i % 3 === 0) console.log('Bizz');
+                else if (i % 5 === 0) console.log('Appz');
+                else console.log(i);
+            }
+        }
+
+        mark35();
+
+2.solution
+
+   var Parent = function () {
+            console.log('This is Parent!!');
+        }
+
+        Parent.prototype.method = function() {
+            console.log('This is Parent Method!!');
+        }
+
+        var extender = function (par, chi) {
+            chi.prototype = Object.create(par.prototype);
+        }
+
+        var Child = function() {
+            console.log('This is Child!!');
+        }
+
+        Child.prototype.childMethod = function() {
+            console.log('This is Child Method!!');
+        }
+
+        extender(Parent, Child);
+
+        function CheckInstance() {
+            var child = new Child();
+            if (child instanceof Parent)  {
+                console.log('This is True!!');
+            }
+            if (child instanceof Child)  {
+                console.log('This is also True!!');
+            }
+
+            child.method();
+        }
+
+        CheckInstance();
+
+3.solution
+write the following code in the angular controller.
+
+module.controller("cntrolr", function ($scope, $http) {
+    $scope.result = '';
+    var reqStr1 = { method: 'GET', url: 'https://cdn.gfkdaphne.com/tests/async.php?a=2' }
+    var reqStr2 = { method: 'GET', url: 'https://cdn.gfkdaphne.com/tests/async.php?a=2' }
+
+    $http(reqStr1).then(function (response) { $scope.result = response.data; }, function () { alert('err!!!!!'); });
+    $http(reqStr2).then(function (response) { $scope.result = $scope.result + ' ' + response.data; }, function () { alert('err!!!!!'); });
+    console.log($scope.result);
+});
