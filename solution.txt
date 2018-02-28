@@ -1,3 +1,4 @@
+asacgh
 1.solution
                 function mark35() {
             for (var i = 1; i <= 100; i++) {
@@ -49,12 +50,66 @@
 
         CheckInstance();
 
+
 3.solution
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+
+      title:{
+      text: "Date wise Responses"
+      },
+      axisY: {
+		title: "Percentage %",		 
+        interval: 5,
+		suffix: "",
+		stripLines: [{
+			value: 0,			 
+		}]
+	   },
+       data: [
+      {
+        yValueFormatString: "0",
+        xValueFormatString: "dd-mm-YYYY",
+        type: "line",
+
+        dataPoints: [
+			{x: new Date('02-20-2018'),y:5},
+			{x: new Date('02-21-2018'),y:3},
+			{x: new Date('02-22-2018'),y:19},
+			{x: new Date('02-23-2018'),y:30},
+			{x: new Date('02-24-2018'),y:45},
+			{x: new Date('02-25-2018'),y:55},
+			{x: new Date('02-26-2018'),y:42},
+			{x: new Date('02-27-2018'),y:25},
+			{x: new Date('02-28-2018'),y:9}
+		]
+      }
+      ]
+    });
+
+    chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+</body>
+</html>
+
+
+4.solution
 write the following code in the angular controller.
 
 module.controller("cntrolr", function ($scope, $http) {
     $scope.result = '';
-    var reqStr1 = { method: 'GET', url: 'https://cdn.gfkdaphne.com/tests/async.php?a=2' }
+    var reqStr1 = { method: 'GET', url: 'https://cdn.gfkdaphne.com/tests/async.php?a=1' }
     var reqStr2 = { method: 'GET', url: 'https://cdn.gfkdaphne.com/tests/async.php?a=2' }
 
     $http(reqStr1).then(function (response) { $scope.result = response.data; }, function () { alert('err!!!!!'); });
